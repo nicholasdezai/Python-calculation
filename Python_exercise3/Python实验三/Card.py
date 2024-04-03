@@ -40,15 +40,15 @@ class Card(object):
         t1 = self.suit, self.rank
         t2 = other.suit, other.rank
         return cmp(t1, t2)
-#        if self.suit > other.suit:
-#            return 1
-#        if self.suit < other.suit:
-#            return -1
-#        if self.rank > other.rank:
-#            return 1
-#        if self.rank < other.rank:
-#            return -1
-#        return 0
+##        if self.suit > other.suit:
+##            return 1
+##        if self.suit < other.suit:
+##            return -1
+##        if self.rank > other.rank:
+##            return 1
+##        if self.rank < other.rank:
+##            return -1
+##        return 0
 
     def __getitem__(self, index):
         if index==0:
@@ -136,7 +136,7 @@ if __name__ == '__main__':
     deck.shuffle()
 
     hand = Hand()
-    print(find_defining_class(hand, 'shuffle'))
+    print((find_defining_class(hand, 'shuffle')))
 
     deck.move_cards(hand, 5)
     hand.sort()
