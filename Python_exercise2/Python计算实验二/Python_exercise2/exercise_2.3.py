@@ -2,13 +2,13 @@ import random
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# M = eval(input("请输入班级数:"))
-# N = eval(input("请输入班级人数:"))
+M = eval(input("请输入班级数:"))
+N = eval(input("请输入班级人数:"))
 
-for j in range(1000):
-    Q = 0
-    for k in range(1, 1000):
-        l = [random.randint(1, 365) for i in range(j)]
+Q = 0
+for j in range(M):
+    for k in range(1, N):
+        l = [random.randint(1, 365) for i in range(k)]
         d = dict()
         flag = False
         for i in l:
@@ -18,4 +18,5 @@ for j in range(1000):
                 d[i] = 1
         if flag:
             Q += 1
-    print(Q / 1000)
+            break
+print(Q / M)

@@ -7,18 +7,16 @@ License: GNU GPLv3 http://www.gnu.org/licenses/gpl.html
 
 """
 
-
 # see if Swampy is installed as a package
 from swampy.TurtleWorld import *
 
 
-
 def koch(t, n):
     """Draws a koch curve with length n."""
-    if n<3:
+    if n < 3:
         fd(t, n)
         return
-    m = n/3.0
+    m = n / 3.0
     koch(t, m)
     lt(t, 60)
     koch(t, m)
@@ -41,16 +39,15 @@ def f(t, n):
         lt(t, 120)
 
 
-
 world = TurtleWorld()
 bob = Turtle()
 bob.delay = 0
 
 bob.x = -150
-bob.y = 90
+bob.y = -75
 bob.redraw()
 
-# snowflake(bob, 300)
-f(bob, 100)
+f(bob, 300)
+
 
 world.mainloop()

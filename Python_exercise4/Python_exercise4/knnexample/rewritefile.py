@@ -1,0 +1,1 @@
+open("new_points_ring.pkl", 'w', newline = '\n').write(open("points_ring.pkl", 'r').read())

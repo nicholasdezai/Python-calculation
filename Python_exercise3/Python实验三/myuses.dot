@@ -1,0 +1,67 @@
+digraph G {
+    graph [rankdir=TB, clusterrank="local"];
+    subgraph cluster_G {
+
+        graph [style="filled,rounded",fillcolor="#80808018", label=""];
+        grid [label="grid", style="filled", fillcolor="#ffffffb2", fontcolor="#000000", group="0"];
+        subgraph cluster_grid {
+
+            graph [style="filled,rounded",fillcolor="#80808018", label="grid"];
+            grid__do_four [label="do_four\n(grid.py:17)", style="filled", fillcolor="#feccccb2", fontcolor="#000000", group="0"];
+            grid__do_twice [label="do_twice\n(grid.py:13)", style="filled", fillcolor="#feccccb2", fontcolor="#000000", group="0"];
+            grid__nothing [label="nothing\n(grid.py:69)", style="filled", fillcolor="#feccccb2", fontcolor="#000000", group="0"];
+            grid__one_four_one [label="one_four_one\n(grid.py:49)", style="filled", fillcolor="#feccccb2", fontcolor="#000000", group="0"];
+            grid__print1beam [label="print1beam\n(grid.py:72)", style="filled", fillcolor="#feccccb2", fontcolor="#000000", group="0"];
+            grid__print1post [label="print1post\n(grid.py:75)", style="filled", fillcolor="#feccccb2", fontcolor="#000000", group="0"];
+            grid__print4beams [label="print4beams\n(grid.py:78)", style="filled", fillcolor="#feccccb2", fontcolor="#000000", group="0"];
+            grid__print4posts [label="print4posts\n(grid.py:81)", style="filled", fillcolor="#feccccb2", fontcolor="#000000", group="0"];
+            grid__print_bar [label="print_bar\n(grid.py:60)", style="filled", fillcolor="#feccccb2", fontcolor="#000000", group="0"];
+            grid__print_beam [label="print_beam\n(grid.py:21)", style="filled", fillcolor="#feccccb2", fontcolor="#000000", group="0"];
+            grid__print_beams [label="print_beams\n(grid.py:27)", style="filled", fillcolor="#feccccb2", fontcolor="#000000", group="0"];
+            grid__print_dash [label="print_dash\n(grid.py:57)", style="filled", fillcolor="#feccccb2", fontcolor="#000000", group="0"];
+            grid__print_end [label="print_end\n(grid.py:66)", style="filled", fillcolor="#feccccb2", fontcolor="#000000", group="0"];
+            grid__print_grid [label="print_grid\n(grid.py:87)", style="filled", fillcolor="#feccccb2", fontcolor="#000000", group="0"];
+            grid__print_plus [label="print_plus\n(grid.py:54)", style="filled", fillcolor="#feccccb2", fontcolor="#000000", group="0"];
+            grid__print_post [label="print_post\n(grid.py:24)", style="filled", fillcolor="#feccccb2", fontcolor="#000000", group="0"];
+            grid__print_posts [label="print_posts\n(grid.py:31)", style="filled", fillcolor="#feccccb2", fontcolor="#000000", group="0"];
+            grid__print_row [label="print_row\n(grid.py:84)", style="filled", fillcolor="#feccccb2", fontcolor="#000000", group="0"];
+            grid__print_space [label="print_space\n(grid.py:63)", style="filled", fillcolor="#feccccb2", fontcolor="#000000", group="0"];
+        }
+    }
+        grid__do_four -> grid__do_twice [style="solid", color="#000000"];
+        grid__print_beams -> grid__do_twice [style="solid", color="#000000"];
+        grid__print_beams -> grid__print_beam [style="solid", color="#000000"];
+        grid__print_posts -> grid__print_post [style="solid", color="#000000"];
+        grid__print_posts -> grid__do_twice [style="solid", color="#000000"];
+        grid__print_row -> grid__print4beams [style="solid", color="#000000"];
+        grid__print_row -> grid__one_four_one [style="solid", color="#000000"];
+        grid__print_row -> grid__print_beams [style="solid", color="#000000"];
+        grid__print_row -> grid__do_four [style="solid", color="#000000"];
+        grid__print_row -> grid__print4posts [style="solid", color="#000000"];
+        grid__print_row -> grid__print_posts [style="solid", color="#000000"];
+        grid__print_row -> grid__nothing [style="solid", color="#000000"];
+        grid__print_grid -> grid__do_twice [style="solid", color="#000000"];
+        grid__print_grid -> grid__print4beams [style="solid", color="#000000"];
+        grid__print_grid -> grid__one_four_one [style="solid", color="#000000"];
+        grid__print_grid -> grid__print_beams [style="solid", color="#000000"];
+        grid__print_grid -> grid__nothing [style="solid", color="#000000"];
+        grid__print_grid -> grid__print_row [style="solid", color="#000000"];
+        grid -> grid__print_grid [style="solid", color="#000000"];
+        grid__one_four_one -> grid__do_four [style="solid", color="#000000"];
+        grid__print1beam -> grid__print_plus [style="solid", color="#000000"];
+        grid__print1beam -> grid__one_four_one [style="solid", color="#000000"];
+        grid__print1beam -> grid__print_dash [style="solid", color="#000000"];
+        grid__print1beam -> grid__nothing [style="solid", color="#000000"];
+        grid__print1post -> grid__nothing [style="solid", color="#000000"];
+        grid__print1post -> grid__print_space [style="solid", color="#000000"];
+        grid__print1post -> grid__print_bar [style="solid", color="#000000"];
+        grid__print1post -> grid__one_four_one [style="solid", color="#000000"];
+        grid__print4beams -> grid__print_plus [style="solid", color="#000000"];
+        grid__print4beams -> grid__one_four_one [style="solid", color="#000000"];
+        grid__print4beams -> grid__print_end [style="solid", color="#000000"];
+        grid__print4beams -> grid__print1beam [style="solid", color="#000000"];
+        grid__print4posts -> grid__one_four_one [style="solid", color="#000000"];
+        grid__print4posts -> grid__print_end [style="solid", color="#000000"];
+        grid__print4posts -> grid__print_bar [style="solid", color="#000000"];
+        grid__print4posts -> grid__print1post [style="solid", color="#000000"];
+    }
