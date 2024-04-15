@@ -40,12 +40,14 @@ print("纠正后的文本：", corrected_text)
 
 import re
 
+
 def remove_repeated_words(text):
     # 使用正则表达式查找连续重复的单词
     pattern = r'\b(\w+)\s+\1\b'
     # 将连续重复的单词替换为单个单词
     corrected_text = re.sub(pattern, r'\1', text)
     return corrected_text
+
 
 # 示例文本
 example_text = "This is is a test test sentence. Please Pvlease correct it."
@@ -54,3 +56,20 @@ example_text = "This is is a test test sentence. Please Pvlease correct it."
 corrected_text = remove_repeated_words(example_text)
 print("修正后的文本：", corrected_text)
 
+
+# 4，编写程序,用户输入一段英文,然后输出这有段英文中所有长度为3个字母的时网。
+def find_three_letter_words(text):
+    # 使用正则表达式找出所有的单词
+    words = re.findall(r'\b\w{3}\b', text)
+
+    return words
+
+
+# 输入提示用户输入英文文本
+input_text = input("请输入一段英文文本：")
+
+# 调用函数并获取结果
+result = find_three_letter_words(input_text)
+
+# 输出所有长度为3的单词
+print("长度为3个字母的单词有：", result)
