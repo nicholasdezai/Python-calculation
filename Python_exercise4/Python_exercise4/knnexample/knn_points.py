@@ -49,21 +49,21 @@ def L1dist(v1, v2):
     return sum(abs(v1 - v2))
 
 
-# 读入训练样本
-with open('points_ring.pkl', 'rb') as f:
-    class_1 = pickle.load(f)
-    class_2 = pickle.load(f)
-    labels = pickle.load(f)
-
-# 在训练样本集上获得Knn分类器
-model = KnnClassifier(labels, np.vstack((class_1, class_2)))
-
-# 读入测试样本
-
-with open('points_ring.pkl', 'r') as f:
-    class_1 = pickle.load(f)
-    class_2 = pickle.load(f)
-    labels = pickle.load(f)
-
-# 在第一个测试样本上的分类结果
-print(model.classify(class_1[0]))
+# # 读入训练样本
+# with open('points_ring.pkl', 'rb') as f:
+#     class_1 = pickle.load(f, encoding='latin1')
+#     class_2 = pickle.load(f, encoding='latin1')
+#     labels = pickle.load(f, encoding='latin1')
+#
+# # 在训练样本集上获得Knn分类器
+# model = KnnClassifier(labels, np.vstack((class_1, class_2)))
+#
+# # 读入测试样本
+#
+# with open('points_ring.pkl', 'rb') as f:
+#     class_1 = pickle.load(f, encoding='latin1')
+#     class_2 = pickle.load(f, encoding='latin1')
+#     labels = pickle.load(f, encoding='latin1')
+#
+# # 在第一个测试样本上的分类结果
+# print(model.classify(class_1[0]))
