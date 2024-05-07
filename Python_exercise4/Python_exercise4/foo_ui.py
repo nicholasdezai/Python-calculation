@@ -1,4 +1,5 @@
 import tkinter as tk
+import tkinter.font as tkFont
 from foo import *
 
 
@@ -35,9 +36,11 @@ class Application(tk.Frame):
 
         # 第7步，创建Listbox并为其添加内容
         select_box = tk.StringVar()
+        # 设置select_box的大小
+
         select_box.set(("rotateword", "avoid", "useonly", "useall", "hasnoe", "isabecedarian"))
         # 创建Listbox
-        lb = tk.Listbox(self, listvariable=select_box)  # 将var2的值赋给Listbox
+        lb = tk.Listbox(self, listvariable=select_box,font=("Arial", 20,))  # 将var2的值赋给Listbox
         lb.pack()
 
         self.quit_button = tk.Button(self, text="QUIT", fg="red", command=self.master.destroy)
@@ -62,11 +65,11 @@ class Application(tk.Frame):
             # 设计一个按钮，点击后调用rotateword函数，并在输入文本框中显示结果
 
             rotateword_framerotateword_button = tk.Button(subwindow, text="rotateword", command=
-                lambda : var.set(rotateword(rotateword_entry.get(), int(rotateword_n_entry.get()))))
+            lambda: var.set(rotateword(rotateword_entry.get(), int(rotateword_n_entry.get()))))
             rotateword_framerotateword_button.pack()
 
             var = tk.StringVar()
-            l = tk.Label(subwindow, textvariable=var, bg='green', fg='white', font=('Arial', 12), width=30, height=2)
+            l = tk.Label(subwindow, textvariable=var, bg='green', fg='white', font=('Arial', 14), width=30, height=2)
             l.pack()
 
         def avoid_page():
@@ -85,7 +88,7 @@ class Application(tk.Frame):
             avoid_list_entry.pack()
 
             avoid_button = tk.Button(subwindow, text="avoid", command=
-                lambda : var.set("True" if avoid_1(avoid_entry.get(), list(avoid_list_entry.get())) else "False"))
+            lambda: var.set("True" if avoid_1(avoid_entry.get(), list(avoid_list_entry.get())) else "False"))
             avoid_button.pack()
 
             var = tk.StringVar()
@@ -106,7 +109,7 @@ class Application(tk.Frame):
             useonly_list_entry = tk.Entry(subwindow)
             useonly_list_entry.pack()
             useonly_button = tk.Button(subwindow, text="useonly", command=
-                lambda : var.set("True" if useonly(useonly_entry.get(), list(useonly_list_entry.get())) else "False"))
+            lambda: var.set("True" if useonly(useonly_entry.get(), list(useonly_list_entry.get())) else "False"))
             useonly_button.pack()
             var = tk.StringVar()
             l = tk.Label(subwindow, textvariable=var, bg='green', fg='white', font=('Arial', 12), width=30, height=2)
@@ -174,6 +177,7 @@ app = Application(master=root)
 app.master.title('Hello Tkinter')
 # 设置窗口大小
 app.master.geometry('960x540')
-
 # 主事件循环开始
 app.mainloop()
+
+

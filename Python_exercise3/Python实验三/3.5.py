@@ -131,7 +131,6 @@ def useall(word, needed_letters):
     # 构建正则表达式，匹配单词中包含所有需要字母至少一个的情况
     pattern = ''.join(f"(?=.*{letter})" for letter in needed_letters)
     pattern += '.*'  # 匹配任意其他字符
-    # 使用 re.search() 函数查找匹配
     return bool(re.search(pattern, word))
 
 

@@ -51,6 +51,6 @@ n = 5
 prefix_dict = markov_analysis(text, n)
 
 # 生成随机文本
-num_sentences = 1
+num_sentences = 3
 random_text = generate_text(prefix_dict, n, num_sentences)
 print(random_text)
