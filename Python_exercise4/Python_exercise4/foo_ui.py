@@ -13,7 +13,7 @@ class Application(tk.Frame):
 
     def create_widgets(self):
         show_bar = tk.StringVar()  # 创建变量，用var1用来接收鼠标点击具体选项的内容
-        l = tk.Label(self, bg='green', fg='yellow', font=('Arial', 12), width=20, textvariable=show_bar)
+        l = tk.Label(self, bg='green', fg='yellow', font=('Arial', 20), width=200, height=5, textvariable=show_bar)
         l.pack()
 
         def print_selection():
@@ -31,7 +31,7 @@ class Application(tk.Frame):
             switch[value]()
 
         # 第5步，创建一个按钮并放置，点击按钮调用print_selection函数
-        b1 = tk.Button(self, text='print selection', width=15, height=2, command=print_selection)
+        b1 = tk.Button(self, text='print selection', width=150, height=5, command=print_selection)
         b1.pack()
 
         # 第7步，创建Listbox并为其添加内容
@@ -40,18 +40,18 @@ class Application(tk.Frame):
 
         select_box.set(("rotateword", "avoid", "useonly", "useall", "hasnoe", "isabecedarian"))
         # 创建Listbox
-        lb = tk.Listbox(self, listvariable=select_box,font=("Arial", 20,))  # 将var2的值赋给Listbox
+        lb = tk.Listbox(self, listvariable=select_box,font=("Arial", 20,),width=150, height=40)  # 将var2的值赋给Listbox
         lb.pack()
 
-        self.quit_button = tk.Button(self, text="QUIT", fg="red", command=self.master.destroy)
+        self.quit_button = tk.Button(self, text="QUIT", fg="red", command=self.master.destroy,font=("Arial", 20,))
         self.quit_button.pack(side="bottom")
 
         def rotateword_page():
             subwindow = tk.Toplevel(self)
             subwindow.title("rotateword_page")  # 设置子窗口的标题
 
-            # 在子窗口中添加一个按钮，点击后可以关闭子窗口
-            close_button = tk.Button(subwindow, text="关闭", command=subwindow.destroy)
+            # 在子窗口中添加一个按钮，点击后可以close子窗口
+            close_button = tk.Button(subwindow, text="close", command=subwindow.destroy)
             close_button.pack(side="bottom")
             # 为foo中rotateword函数设置ui
             rotateword_label = tk.Label(subwindow, text="rotateword:")
@@ -69,13 +69,13 @@ class Application(tk.Frame):
             rotateword_framerotateword_button.pack()
 
             var = tk.StringVar()
-            l = tk.Label(subwindow, textvariable=var, bg='green', fg='white', font=('Arial', 14), width=30, height=2)
+            l = tk.Label(subwindow, textvariable=var, bg='green', fg='white', font=('Arial', 24), width=150, height=52)
             l.pack()
 
         def avoid_page():
             subwindow = tk.Toplevel(self)
             subwindow.title("avoid_page")  # 设置子窗口的标题
-            close_button = tk.Button(subwindow, text="关闭", command=subwindow.destroy)
+            close_button = tk.Button(subwindow, text="close", command=subwindow.destroy)
             close_button.pack(side="bottom")
 
             avoid_label = tk.Label(subwindow, text="word:")
@@ -92,13 +92,13 @@ class Application(tk.Frame):
             avoid_button.pack()
 
             var = tk.StringVar()
-            l = tk.Label(subwindow, textvariable=var, bg='green', fg='white', font=('Arial', 12), width=30, height=2)
+            l = tk.Label(subwindow, textvariable=var, bg='green', fg='white', font=('Arial', 20), width=150, height=5)
             l.pack()
 
         def useonly_page():
             subwindow = tk.Toplevel(self)
             subwindow.title("useonly_page")
-            close_button = tk.Button(subwindow, text="关闭", command=subwindow.destroy)
+            close_button = tk.Button(subwindow, text="close", command=subwindow.destroy)
             close_button.pack(side="bottom")
             useonly_label = tk.Label(subwindow, text="word:")
             useonly_label.pack()
@@ -112,13 +112,13 @@ class Application(tk.Frame):
             lambda: var.set("True" if useonly(useonly_entry.get(), list(useonly_list_entry.get())) else "False"))
             useonly_button.pack()
             var = tk.StringVar()
-            l = tk.Label(subwindow, textvariable=var, bg='green', fg='white', font=('Arial', 12), width=30, height=2)
+            l = tk.Label(subwindow, textvariable=var, bg='green', fg='white', font=('Arial', 20), width=150, height=5)
             l.pack()
 
         def useall_page():
             subwindow = tk.Toplevel(self)
             subwindow.title("useall_page")
-            close_button = tk.Button(subwindow, text="关闭", command=subwindow.destroy)
+            close_button = tk.Button(subwindow, text="close", command=subwindow.destroy)
             close_button.pack(side="bottom")
             useall_label = tk.Label(subwindow, text="word:")
             useall_label.pack()
@@ -133,13 +133,13 @@ class Application(tk.Frame):
 
             useall_button.pack()
             var = tk.StringVar()
-            l = tk.Label(subwindow, textvariable=var, bg='green', fg='white', font=('Arial', 12), width=30, height=2)
+            l = tk.Label(subwindow, textvariable=var, bg='green', fg='white', font=('Arial', 20), width=150, height=5)
             l.pack()
 
         def hasnoe_page():
             subwindow = tk.Toplevel(self)
             subwindow.title("hasnoe_page")
-            close_button = tk.Button(subwindow, text="关闭", command=subwindow.destroy)
+            close_button = tk.Button(subwindow, text="close", command=subwindow.destroy)
             close_button.pack(side="bottom")
             hasnoe_label = tk.Label(subwindow, text="word:")
             hasnoe_label.pack()
@@ -149,13 +149,13 @@ class Application(tk.Frame):
                                       command=lambda: var.set("True" if hasnoe(hasnoe_entry.get()) else "False"))
             hasnoe_button.pack()
             var = tk.StringVar()
-            l = tk.Label(subwindow, textvariable=var, bg='green', fg='white', font=('Arial', 12), width=30, height=2)
+            l = tk.Label(subwindow, textvariable=var, bg='green', fg='white', font=('Arial', 20), width=150, height=5)
             l.pack()
 
         def isabecedarian_page():
             subwindow = tk.Toplevel(self)
             subwindow.title("isabecedarian_page")
-            close_button = tk.Button(subwindow, text="关闭", command=subwindow.destroy)
+            close_button = tk.Button(subwindow, text="close", command=subwindow.destroy)
             close_button.pack(side="bottom")
             isabecedarian_label = tk.Label(subwindow, text="word:")
             isabecedarian_label.pack()
@@ -166,7 +166,7 @@ class Application(tk.Frame):
                                                  "True" if isabecedarian(isabecedarian_entry.get()) else "False"))
             isabecedarian_button.pack()
             var = tk.StringVar()
-            l = tk.Label(subwindow, textvariable=var, bg='green', fg='white', font=('Arial', 12), width=30, height=2)
+            l = tk.Label(subwindow, textvariable=var, bg='green', fg='white', font=('Arial', 20), width=150, height=5)
             l.pack()
 
 
@@ -176,7 +176,7 @@ app = Application(master=root)
 # 设置窗口标题
 app.master.title('Hello Tkinter')
 # 设置窗口大小
-app.master.geometry('960x540')
+app.master.geometry('1440x900')
 # 主事件循环开始
 app.mainloop()
 

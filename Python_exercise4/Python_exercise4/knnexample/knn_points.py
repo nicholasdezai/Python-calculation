@@ -3,6 +3,7 @@
 
 # from numpy import *
 import numpy as np
+import pandas as pd
 import pickle
 
 """
@@ -67,3 +68,4 @@ def L1dist(v1, v2):
 #
 # # 在第一个测试样本上的分类结果
 # print(model.classify(class_1[0]))
+

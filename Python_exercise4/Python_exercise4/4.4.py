@@ -6,12 +6,12 @@ import tkinter as tk
 from tkinter import simpledialog, messagebox
 from collections import Counter
 
-matplotlib.rc("font", family='AR PL UMing CN')
+matplotlib.rc("font", family='Noto Sans CJK')
 fonts = set([f.name for f in fontManager.ttflist])
-print(fonts)
-if 'Noto Mono' not in fonts:
-    print("没有找到合适的字体")
-full_text = ""
+# print(fonts)
+# if 'Noto Sans CJK' not in fonts:
+#     print("没有找到合适的字体")
+# full_text = ""
 
 
 def count_frequency(text, use_word=True):
@@ -42,10 +42,10 @@ def main_analysis(filename, common_words):
     freq_last_40 = {word: count_frequency(last_40, use_word=True)[word] for word in common_words}
 
     with open('analysis_results.txt', 'w', encoding='utf-8') as f:
-        f.write("前80回词频:\n")
+        f.write("before80:\n")
         for word, count in freq_first_80.items():
             f.write(f"{word}: {count}\n")
-        f.write("\n后40回词频:\n")
+        f.write("\nafter40:\n")
         for word, count in freq_last_40.items():
             f.write(f"{word}: {count}\n")
 
@@ -60,9 +60,9 @@ def plot_frequency():
     is_first_80 = True
 
     for line in lines:
-        if '前80回' in line:
+        if 'before80' in line:
             continue
-        elif '后40回' in line:
+        elif 'after40' in line:
             is_first_80 = False
             continue
         if line.strip():
@@ -76,9 +76,9 @@ def plot_frequency():
     x = range(len(words))
     plt.bar(x, freqs_80, width=0.4, label='before 80 chapters')
     plt.bar([i + 0.4 for i in x], freqs_40, width=0.4, label='after 40 chapters', )
-    plt.xlabel('词')
-    plt.ylabel('频率')
-    plt.title('词频对比')
+    plt.xlabel('word')
+    plt.ylabel('frequency')
+    plt.title('frequency compare')
     plt.xticks([i + 0.2 for i in x], words)
     plt.legend()
     plt.show()
